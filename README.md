@@ -27,10 +27,16 @@ Setup the output directory for dataset and models.
 export XAI_TORCH_CACHE_DIR=<path-to-cache-dir>
 ```
 
-# Running an experiment
+# Running an experiment directly
 To run an experiment, call the main training script and set args/al_args=<active-learning-config>. For example to run, active learning with entropy sampling on Tobacco3482 dataset, run:
 ```
 ./scripts/al_train.sh --config-path ../../../cfg/al_adv +experiment=active_learning/tobacco3482/resnet50 args/al_args=entropy_sampling args.data_args.dataset_dir=<path-to-dataset-dir>
+```
+
+# Running experiments through a helper script
+To run different experiments, the helper scripts ./experiments/tobacco3482.sh, ./experiments/tobacco3482_pre.sh, ./experiments/rvlcdip.sh can be used. For example to run an experiment with tobacco3482 dataset, class imbalance m=2, and entropy sampling, the following script can be used.
+```
+./scripts/experiments/tobacco3482.sh --query=entropy_sampling --exp=imb_2 --data-path=<path-to-dataset-dir> --seed=0
 ```
 
 # License
