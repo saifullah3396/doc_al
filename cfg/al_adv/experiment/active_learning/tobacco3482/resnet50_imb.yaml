@@ -4,17 +4,16 @@ defaults:
  - override /args/data_args: tobacco3482
  - override /args/al_args: random_sampling
 
-
 args:
   general_args:
     debug_data: false
-    do_val: false
-    root_output_dir: ${oc.env:XAI_TORCH_OUTPUT_DIR}/al_tobacco_fix_no_val
+    do_val: true
+    root_output_dir: ${oc.env:XAI_TORCH_OUTPUT_DIR}/al_tobacco3482
     overwrite_output_dir: false
   training_args:
     experiment_name: random_sampling
-    eval_training: False
-    load_best_checkpoint_test: false
+    eval_training: false
+    load_best_checkpoint_test: true
     load_best_checkpoint_resume: false
     eval_every_n_epochs: 2
     max_epochs: 40
