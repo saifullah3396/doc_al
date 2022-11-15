@@ -1,14 +1,14 @@
 dataset_name: tobacco3482_noisy
-dataset_dir: ${oc.env:ROOT_DIR}ds/images/Tobacco3482/
+dataset_dir: ./data/Tobacco3482/
 data_cacher_args:
   strategy: datadings
   config:
-    cached_data_name: resized_384x384_noisy_20
+    cached_data_name: resized_224x224_noisy_20
     dataset_cache_dir: ${oc.env:XAI_TORCH_CACHE_DIR}/datasets/
     cache_images: True
     cache_resized_images: True
-    cache_image_size: [384, 384] # width, height
-    cache_encoded_images: True
+    cache_image_size: [224, 224] # width, height
+    cache_encoded_images: False
     load_data_to_ram: False
 train_aug_args:
   strategy: basic_image_aug

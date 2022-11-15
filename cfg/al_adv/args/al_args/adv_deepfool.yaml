@@ -1,7 +1,6 @@
-
 query_strategy: adv_deepfool
 query_strategy_kwargs:
-  batch_size: 256
+  batch_size: 48
 n_query_ratio: 0.05
 labeled_split_ratio: 0.10
 n_rounds: 10

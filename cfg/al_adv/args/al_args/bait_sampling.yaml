@@ -1,4 +1,3 @@
-
 query_strategy: bait_sampling
 query_strategy_kwargs: {}
 n_query_ratio: 0.05

@@ -1,4 +1,3 @@
-
 query_strategy: least_confidence_dropout
 query_strategy_kwargs: {}
 n_query_ratio: 0.05

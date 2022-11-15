@@ -1,4 +1,3 @@
-
 query_strategy: bald_dropout
 query_strategy_kwargs: {}
 n_query_ratio: 0.05

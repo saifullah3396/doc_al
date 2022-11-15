@@ -1,9 +1,9 @@
 dataset_name: rvlcdip_noisy
-dataset_dir: ${oc.env:ROOT_DIR}ds/images/rvl-cdip-wo-tobacco3482/
+dataset_dir: ./data/rvlcdip
 data_cacher_args:
   strategy: datadings
   config:
-    cached_data_name: resized_224x224_noisy_10_vis_sim
+    cached_data_name: resized_224x224_noisy_10
     dataset_cache_dir: ${oc.env:XAI_TORCH_CACHE_DIR}/datasets/
     cache_images: True
     cache_resized_images: True
