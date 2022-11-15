@@ -56,23 +56,12 @@ model_ema_args:
   force_cpu: false
 non_blocking_tensor_conv: false
 optimizers:
-  # default:
-  #   group_params:
-  #   - group_name: default
-  #     kwargs:
-  #       betas:
-  #       - 0.9
-  #       - 0.999
-  #       eps: 1.0e-08
-  #       lr: 2.0e-05
-  #       weight_decay: 0.01
-  #   name: adam
   default:
     group_params:
     - group_name: default
       kwargs:
         lr: 0.01
-        weight_decay: 1.0e-4
+        momentum: 0.9
     name: sgd
 resume_checkpoint_file: null
 resume_from_checkpoint: true

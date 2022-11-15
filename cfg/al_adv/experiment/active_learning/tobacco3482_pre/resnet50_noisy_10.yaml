@@ -4,28 +4,21 @@ defaults:
  - override /args/data_args: tobacco3482_noisy_10
  - override /args/al_args: random_sampling
 
-
 args:
   general_args:
     debug_data: false
-    do_val: false
-    root_output_dir: ${oc.env:XAI_TORCH_OUTPUT_DIR}/al_tobacco_pre_fix_no_val
+    do_val: true
+    root_output_dir: ${oc.env:XAI_TORCH_OUTPUT_DIR}/al_tobacco3482_pre
     overwrite_output_dir: false
+  model_args:
+    pretrained_checkpoint: https://cloud.dfki.de/owncloud/index.php/s/AGa2FRTM55ppPgt/download/resnet50_rvlcdip_base.ckpt
   training_args:
     experiment_name: random_sampling
-    eval_training: False
-    load_best_checkpoint_test: false
+    eval_training: false
+    load_best_checkpoint_test: true
     load_best_checkpoint_resume: false
     eval_every_n_epochs: 2
     max_epochs: 40
-    optimizers:
-      default:
-        group_params:
-        - group_name: default
-          kwargs:
-            lr: 0.01
-            momentum: 0.9
-        name: sgd
   data_args:
     data_loader_args:
       per_device_train_batch_size: 64
@@ -39,6 +32,3 @@ args:
     query_strategy_kwargs:
       embedding_layer: model.avgpool
     reset_model: True
-  model_args:
-    pretrained_checkpoint: https://cloud.dfki.de/owncloud/index.php/s/AGa2FRTM55ppPgt/download/resnet50_rvlcdip_al.ckpt
-    # embedding_layer: model.avgpool

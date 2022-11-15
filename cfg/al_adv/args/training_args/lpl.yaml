@@ -17,7 +17,7 @@ enable_checkpointing: true
 enable_grad_clipping: false
 eval_training: true
 gradient_accumulation_steps: 1
-log_gpu_stats: true
+log_gpu_stats: false
 log_to_tb: true
 logging_steps: 10
 eval_every_n_epochs: 2
