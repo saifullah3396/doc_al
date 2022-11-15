@@ -1,0 +1,47 @@
+#!/bin/bash -l
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+BASE_EXP_CONFIG_TOBACCO3482="$SCRIPT_DIR/../../train.sh --config-path ../../../cfg/al_adv/ +experiment=active_learning/new_tobacco_pre/resnet50"
+BASE_EXP_CONFIG_TOBACCO3482_IMB="$SCRIPT_DIR/../../train.sh --config-path ../../../cfg/al_adv/ +experiment=active_learning/new_tobacco_pre/resnet50_imb"
+BASE_EXP_CONFIG_TOBACCO3482_N10="$SCRIPT_DIR/../../train.sh --config-path ../../../cfg/al_adv/ +experiment=active_learning/new_tobacco_pre/resnet50_noisy_10"
+BASE_EXP_CONFIG_TOBACCO3482_N20="$SCRIPT_DIR/../../train.sh --config-path ../../../cfg/al_adv/ +experiment=active_learning/new_tobacco_pre/resnet50_noisy_20"
+CONFIGS=(
+    "tobacco3482_resnet50_waal_125 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.0125 args.al_args.n_rounds=29 args.training_args.experiment_name=waal_125_0 args.al_args.al_seed=0 args/training_args=waal args.model_args.name=resnet50_waal" # 0
+    "tobacco3482_resnet50_waal_25 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.025 args.al_args.n_rounds=15 args.training_args.experiment_name=waal_25_0 args.al_args.al_seed=0 args/training_args=waal args.model_args.name=resnet50_waal" # 1
+    "tobacco3482_resnet50_waal_5 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.05 args.al_args.n_rounds=8 args.training_args.experiment_name=waal_5_0 args.al_args.al_seed=0 args/training_args=waal args.model_args.name=resnet50_waal" # 2
+    "tobacco3482_resnet50_waal_imb_2 $BASE_EXP_CONFIG_TOBACCO3482_IMB args/al_args=waal args.training_args.experiment_name=waal_25_imb_2_0 args.al_args.al_seed=0 args/training_args=waal args.model_args.name=resnet50_waal" # 3
+    "tobacco3482_resnet50_waal_imb_4 $BASE_EXP_CONFIG_TOBACCO3482_IMB args/al_args=waal args.al_args.n_classes_removed=4 args.training_args.experiment_name=waal_25_imb_4_0 args.al_args.al_seed=0 args/training_args=waal args.model_args.name=resnet50_waal" # 4
+    "tobacco3482_resnet50_waal_n10 $BASE_EXP_CONFIG_TOBACCO3482_N10 args/al_args=waal args.training_args.experiment_name=waal_25_n10_0 args.al_args.al_seed=0 args/training_args=waal args.model_args.name=resnet50_waal" # 4
+    "tobacco3482_resnet50_waal_n20 $BASE_EXP_CONFIG_TOBACCO3482_N20 args/al_args=waal args.training_args.experiment_name=waal_25_n20_0 args.al_args.al_seed=0 args/training_args=waal args.model_args.name=resnet50_waal" #
+
+    "tobacco3482_resnet50_waal_125 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.0125 args.al_args.n_rounds=29 args.training_args.experiment_name=waal_125_1 args.al_args.al_seed=1 args/training_args=waal args.model_args.name=resnet50_waal" # 0
+    "tobacco3482_resnet50_waal_25 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.025 args.al_args.n_rounds=15 args.training_args.experiment_name=waal_25_1 args.al_args.al_seed=1 args/training_args=waal args.model_args.name=resnet50_waal" # 1
+    "tobacco3482_resnet50_waal_5 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.05 args.al_args.n_rounds=8 args.training_args.experiment_name=waal_5_1 args.al_args.al_seed=1 args/training_args=waal args.model_args.name=resnet50_waal" # 2
+    "tobacco3482_resnet50_waal_imb_2 $BASE_EXP_CONFIG_TOBACCO3482_IMB args/al_args=waal args.training_args.experiment_name=waal_25_imb_2_1 args.al_args.al_seed=1 args/training_args=waal args.model_args.name=resnet50_waal" # 3
+    "tobacco3482_resnet50_waal_imb_4 $BASE_EXP_CONFIG_TOBACCO3482_IMB args/al_args=waal args.al_args.n_classes_removed=4 args.training_args.experiment_name=waal_25_imb_4_1 args.al_args.al_seed=1 args/training_args=waal args.model_args.name=resnet50_waal" # 4
+    "tobacco3482_resnet50_waal_n10 $BASE_EXP_CONFIG_TOBACCO3482_N10 args/al_args=waal args.training_args.experiment_name=waal_25_n10_1 args.al_args.al_seed=1 args/training_args=waal args.model_args.name=resnet50_waal" # 4
+    "tobacco3482_resnet50_waal_n20 $BASE_EXP_CONFIG_TOBACCO3482_N20 args/al_args=waal args.training_args.experiment_name=waal_25_n20_1 args.al_args.al_seed=1 args/training_args=waal args.model_args.name=resnet50_waal" #
+
+    "tobacco3482_resnet50_waal_125 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.0125 args.al_args.n_rounds=29 args.training_args.experiment_name=waal_125_2 args.al_args.al_seed=2 args/training_args=waal args.model_args.name=resnet50_waal" # 0
+    "tobacco3482_resnet50_waal_25 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.025 args.al_args.n_rounds=15 args.training_args.experiment_name=waal_25_2 args.al_args.al_seed=2 args/training_args=waal args.model_args.name=resnet50_waal" # 1
+    "tobacco3482_resnet50_waal_5 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.05 args.al_args.n_rounds=8 args.training_args.experiment_name=waal_5_2 args.al_args.al_seed=2 args/training_args=waal args.model_args.name=resnet50_waal" # 2
+    "tobacco3482_resnet50_waal_imb_2 $BASE_EXP_CONFIG_TOBACCO3482_IMB args/al_args=waal args.training_args.experiment_name=waal_25_imb_2_2 args.al_args.al_seed=2 args/training_args=waal args.model_args.name=resnet50_waal" # 3
+    "tobacco3482_resnet50_waal_imb_4 $BASE_EXP_CONFIG_TOBACCO3482_IMB args/al_args=waal args.al_args.n_classes_removed=4 args.training_args.experiment_name=waal_25_imb_4_2 args.al_args.al_seed=2 args/training_args=waal args.model_args.name=resnet50_waal" # 4
+    "tobacco3482_resnet50_waal_n10 $BASE_EXP_CONFIG_TOBACCO3482_N10 args/al_args=waal args.training_args.experiment_name=waal_25_n10_2 args.al_args.al_seed=2 args/training_args=waal args.model_args.name=resnet50_waal" # 4
+    "tobacco3482_resnet50_waal_n20 $BASE_EXP_CONFIG_TOBACCO3482_N20 args/al_args=waal args.training_args.experiment_name=waal_25_n20_2 args.al_args.al_seed=2 args/training_args=waal args.model_args.name=resnet50_waal" #
+
+    "tobacco3482_resnet50_waal_125 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.0125 args.al_args.n_rounds=29 args.training_args.experiment_name=waal_125_3 args.al_args.al_seed=3 args/training_args=waal args.model_args.name=resnet50_waal" # 0
+    "tobacco3482_resnet50_waal_25 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.025 args.al_args.n_rounds=15 args.training_args.experiment_name=waal_25_3 args.al_args.al_seed=3 args/training_args=waal args.model_args.name=resnet50_waal" # 1
+    "tobacco3482_resnet50_waal_5 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.05 args.al_args.n_rounds=8 args.training_args.experiment_name=waal_5_3 args.al_args.al_seed=3 args/training_args=waal args.model_args.name=resnet50_waal" # 2
+    "tobacco3482_resnet50_waal_imb_2 $BASE_EXP_CONFIG_TOBACCO3482_IMB args/al_args=waal args.training_args.experiment_name=waal_25_imb_2_3 args.al_args.al_seed=3 args/training_args=waal args.model_args.name=resnet50_waal" # 3
+    "tobacco3482_resnet50_waal_imb_4 $BASE_EXP_CONFIG_TOBACCO3482_IMB args/al_args=waal args.al_args.n_classes_removed=4 args.training_args.experiment_name=waal_25_imb_4_3 args.al_args.al_seed=3 args/training_args=waal args.model_args.name=resnet50_waal" # 4
+    "tobacco3482_resnet50_waal_n10 $BASE_EXP_CONFIG_TOBACCO3482_N10 args/al_args=waal args.training_args.experiment_name=waal_25_n10_3 args.al_args.al_seed=3 args/training_args=waal args.model_args.name=resnet50_waal" # 4
+    "tobacco3482_resnet50_waal_n20 $BASE_EXP_CONFIG_TOBACCO3482_N20 args/al_args=waal args.training_args.experiment_name=waal_25_n20_3 args.al_args.al_seed=3 args/training_args=waal args.model_args.name=resnet50_waal" #
+
+    "tobacco3482_resnet50_waal_125 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.0125 args.al_args.n_rounds=29 args.training_args.experiment_name=waal_125_4 args.al_args.al_seed=4 args/training_args=waal args.model_args.name=resnet50_waal" # 0
+    "tobacco3482_resnet50_waal_25 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.025 args.al_args.n_rounds=15 args.training_args.experiment_name=waal_25_4 args.al_args.al_seed=4 args/training_args=waal args.model_args.name=resnet50_waal" # 1
+    "tobacco3482_resnet50_waal_5 $BASE_EXP_CONFIG_TOBACCO3482 args/al_args=waal args.al_args.n_query_ratio=0.05 args.al_args.n_rounds=8 args.training_args.experiment_name=waal_5_4 args.al_args.al_seed=4 args/training_args=waal args.model_args.name=resnet50_waal" # 2
+    "tobacco3482_resnet50_waal_imb_2 $BASE_EXP_CONFIG_TOBACCO3482_IMB args/al_args=waal args.training_args.experiment_name=waal_25_imb_2_4 args.al_args.al_seed=4 args/training_args=waal args.model_args.name=resnet50_waal" # 3
+    "tobacco3482_resnet50_waal_imb_4 $BASE_EXP_CONFIG_TOBACCO3482_IMB args/al_args=waal args.al_args.n_classes_removed=4 args.training_args.experiment_name=waal_25_imb_4_4 args.al_args.al_seed=4 args/training_args=waal args.model_args.name=resnet50_waal" # 4
+    "tobacco3482_resnet50_waal_n10 $BASE_EXP_CONFIG_TOBACCO3482_N10 args/al_args=waal args.training_args.experiment_name=waal_25_n10_4 args.al_args.al_seed=4 args/training_args=waal args.model_args.name=resnet50_waal" # 4
+    "tobacco3482_resnet50_waal_n20 $BASE_EXP_CONFIG_TOBACCO3482_N20 args/al_args=waal args.training_args.experiment_name=waal_25_n20_4 args.al_args.al_seed=4 args/training_args=waal args.model_args.name=resnet50_waal" #
+)

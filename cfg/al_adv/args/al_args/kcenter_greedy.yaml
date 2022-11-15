@@ -1,0 +1,10 @@
+
+query_strategy: kcenter_greedy
+query_strategy_kwargs:
+  labeled_subset_size: 64000
+  unlabeled_subset_size: 64000
+n_query_ratio: 0.05
+labeled_split_ratio: 0.10
+n_rounds: 10
+reset_model: false
+al_seed: 0

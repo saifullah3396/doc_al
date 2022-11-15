@@ -1,0 +1,16 @@
+defaults:
+ - args/general_args: default
+ - args/model_args: alexnet
+ - args/data_args: rvlcdip
+ - args/training_args: default
+ - args/al_args: default
+ - override hydra/hydra_logging: disabled
+ - override hydra/job_logging: disabled
+ - _self_
+
+hydra:
+  output_subdir: null
+  job:
+    chdir: False
+  run:
+    dir: .

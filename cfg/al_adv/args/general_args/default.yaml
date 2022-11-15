@@ -1,0 +1,11 @@
+backend: 'nccl'
+debug_data: false
+deterministic: false
+distributed: false
+do_test: true
+do_train: true
+do_val: True
+n_devices: 1
+overwrite_output_dir: false
+root_output_dir: ${oc.env:XAI_TORCH_OUTPUT_DIR}
+seed: 42

@@ -1,0 +1,94 @@
+experiment_name: default_exp
+clear_cuda_cache: true
+cutmixup_args:
+  cutmix: 0
+  cutmix_minmax: null
+  mixup: 0
+  mixup_mode: batch
+  mixup_prob: 1.0
+  mixup_switch_prob: 0.5
+early_stopping_args:
+  cumulative_delta: false
+  min_delta: 0.0
+  mode: min
+  monitored_metric: "" # val/loss
+  patience: 5
+enable_checkpointing: true
+enable_grad_clipping: false
+eval_training: false
+gradient_accumulation_steps: 1
+log_gpu_stats: false
+log_to_tb: true
+logging_steps: 10
+lr_schedulers:
+  # default:
+  #   name: step_lr
+  #   params:
+  #     step_size: 1
+  default:
+    name: cosine_annealing_lr
+    params: {}
+    restarts: false
+  # default:
+  #   name: reduce_lr_on_plateau
+  #   params:
+  #     metric_name: val/loss
+  #     save_history: true
+  #     mode: min
+  #     patience: 1
+eval_every_n_epochs: 2
+max_epochs: 20
+max_grad_norm: 1.0
+min_epochs: null
+model_checkpoint_config:
+  dir: checkpoints
+  every_n_epochs: 1
+  every_n_steps: null
+  mode: max # min
+  monitored_metric: val/accuracy # val/loss
+  n_best_saved: 1
+  n_saved: 1
+  name_prefix: ''
+  save_weights_only: false
+model_ema_args:
+  decay: 0.9999
+  enabled: false
+  force_cpu: false
+non_blocking_tensor_conv: false
+optimizers:
+  # default:
+  #   group_params:
+  #   - group_name: default
+  #     kwargs:
+  #       betas:
+  #       - 0.9
+  #       - 0.999
+  #       eps: 1.0e-08
+  #       lr: 2.0e-05
+  #       weight_decay: 0.01
+  #   name: adam
+  default:
+    group_params:
+    - group_name: default
+      kwargs:
+        lr: 0.01
+        weight_decay: 1.0e-4
+    name: sgd
+resume_checkpoint_file: null
+resume_from_checkpoint: true
+smoothing: 0.0
+stop_on_nan: true
+sync_batchnorm: true
+test_checkpoint_file: null
+warmup_ratio: 0.0 # 2 epochs
+warmup_steps: 0
+wd_schedulers:
+  default:
+    name: "" # cosine
+    params:
+      all:
+        wd_end: 0.001
+        warmup_epochs: 0
+with_amp: true
+load_best_checkpoint_test: false
+load_best_checkpoint_resume: false

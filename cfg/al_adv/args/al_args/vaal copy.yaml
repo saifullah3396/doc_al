@@ -1,0 +1,11 @@
+
+query_strategy: vaal
+query_strategy_kwargs:
+  total_epochs: 20
+n_query_ratio: 0.02
+labeled_split_ratio: 0.10
+n_rounds: 45
+class_imbalance: False
+n_classes_removed: 2
+reset_model: false
+al_seed: 0

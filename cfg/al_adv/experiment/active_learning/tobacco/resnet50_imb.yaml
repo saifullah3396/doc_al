@@ -1,0 +1,43 @@
+# @package _global_
+defaults:
+ - override /args/model_args: resnet50
+ - override /args/data_args: tobacco3482
+ - override /args/al_args: random_sampling
+
+
+args:
+  general_args:
+    debug_data: false
+    do_val: false
+    root_output_dir: ${oc.env:XAI_TORCH_OUTPUT_DIR}/al_tobacco_fix_no_val
+    overwrite_output_dir: false
+  training_args:
+    experiment_name: random_sampling
+    eval_training: False
+    load_best_checkpoint_test: false
+    load_best_checkpoint_resume: false
+    eval_every_n_epochs: 2
+    max_epochs: 40
+    optimizers:
+      default:
+        group_params:
+        - group_name: default
+          kwargs:
+            lr: 0.01
+            momentum: 0.9
+        name: sgd
+  data_args:
+    data_loader_args:
+      per_device_train_batch_size: 64
+      per_device_eval_batch_size: 256
+      dataloader_num_workers: 8
+  al_args:
+    val_samples_ratio: null
+    n_query_ratio: 0.025
+    labeled_split_ratio: 0.05
+    n_rounds: 15
+    query_strategy_kwargs:
+      embedding_layer: model.avgpool
+    class_imbalance: True
+    n_classes_removed: 2
+    reset_model: True

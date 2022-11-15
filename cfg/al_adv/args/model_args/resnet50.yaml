@@ -1,0 +1,11 @@
+name: tv_model
+model_task: image_classification
+cache_dir: ${oc.env:XAI_TORCH_CACHE_DIR}/pretrained/
+pretrained: True
+pretrained_checkpoint: null
+checkpoint_state_dict_key: state_dict
+convert_bn_to_gn: false
+config:
+  return_dict: True
+  model_type: resnet50
+  kwargs: {}
