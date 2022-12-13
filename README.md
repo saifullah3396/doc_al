@@ -37,6 +37,12 @@ To run different experiments, the helper scripts ./experiments/tobacco3482.sh, .
 ./scripts/experiments/tobacco3482.sh --query=entropy_sampling --exp=imb_2 --data-path=<path-to-dataset-dir> --seed=0
 ```
 
+# Citation
+If you find this paper helpful in your work, please consider citing:
+```
+Saifullah Saifullah, Stefan Agne, Andreas Dengel et al. Analyzing the Potential of Active Learning for Document Image Classification, 22 November 2022, PREPRINT (Version 1) available at Research Square [https://doi.org/10.21203/rs.3.rs-2273654/v1]
+```
+
 # License
 This repository is released under the Apache 2.0 license as found in the LICENSE file.
 
