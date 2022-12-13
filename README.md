@@ -1,5 +1,5 @@
 # Analyzing the Potential of Active Learning for Document Image Classification
-This repository contains the code for the paper [Analyzing the Potential of Active Learning for Document Image Classification](To-be-added) by Saifullah Saifullah, Stefan Agne, Andreas Dengel, and Sheraz Ahmed.
+This repository contains the code for the paper [Analyzing the Potential of Active Learning for Document Image Classification]([To-be-added](https://www.researchsquare.com/article/rs-2273654/v1)) by Saifullah Saifullah, Stefan Agne, Andreas Dengel, and Sheraz Ahmed.
 
 # Installation and Dependencies
 Clone the repository along with sub-modules:
