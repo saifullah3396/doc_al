@@ -1,3 +1,4 @@
 [submodule "external/xai_torch"]
 	path = external/xai_torch
 	url = https://git.opendfki.de/saifullah/xai_torch.git
+	branch = doc_al
