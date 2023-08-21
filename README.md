@@ -40,7 +40,7 @@ To run different experiments, the helper scripts ./experiments/tobacco3482.sh, .
 # Citation
 If you find this paper helpful in your work, please consider citing:
 ```
-Saifullah Saifullah, Stefan Agne, Andreas Dengel et al. Analyzing the Potential of Active Learning for Document Image Classification, 22 November 2022, PREPRINT (Version 1) available at Research Square [https://doi.org/10.21203/rs.3.rs-2273654/v1]
+Saifullah, S., Agne, S., Dengel, A. et al. Analyzing the potential of active learning for document image classification. IJDAR 26, 187–209 (2023). [https://doi.org/10.21203/rs.3.rs-2273654/v1](https://doi.org/10.1007/s10032-023-00429-8)]
 ```
 
 # License
